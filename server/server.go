@@ -7,7 +7,7 @@ import (
 
 	"google.golang.org/grpc"
 	//pb "pygo-grpc/server/grpc-server"
-	pb "pygo-grpc/server/grpc_server"
+	pb "github.com/sla10132000/pygo-grpc"
 )
 
 const (
