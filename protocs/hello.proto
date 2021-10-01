@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package hello;
+option go_package = "/grpc-server";
+
+service Hello {
+  rpc PushMsg (MsgStruct) returns (MsgStruct) {}
+}
+
+message MsgStruct {
+  string message = 1;
+}

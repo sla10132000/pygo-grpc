@@ -1,0 +1,24 @@
+//ubuntuで実行
+
+go mod init pygo-grpc
+go get -u google.golang.org/grpc
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+//下記をxxx.procに追加(エラー対応：protoc-gen-go: unable to determine Go import path for)
+option go_package = "/";
+
+protoc -I protocs/ protocs/hello.proto --go_out=plugins=grpc:server/grpc-server/
+
+========================================
+python
+
+//pipがインストールされていない場合
+sudo apt install python3-pip
+
+pip install grpcio
+pip install grpcio-tools
+
+
+python3 -m grpc_tools.protoc -I protocs --python_out=client --grpc_python_out=client protocs/hello.proto
+
+
